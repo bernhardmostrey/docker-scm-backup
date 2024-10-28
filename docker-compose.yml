@@ -4,7 +4,7 @@ services:
   scm-backup:
     build:
       context: .
-      dockerfile: Dockerfile`
+      dockerfile: Dockerfile
     env_file: stack.env
     volumes:
       - ${LOCAL_BACKUP_DIRECTORY}:/opt/scm-backup/backup
