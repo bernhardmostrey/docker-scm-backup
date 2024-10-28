@@ -1,9 +1,16 @@
 localFolder: 'backup'
 
 sources:
-  - title: github
-    hoster: github
+  - title: title1
+    hoster: bitbucket
     type: org
-    name: team
+    name: team1
+    authName: username
+    password: password
+    
+  - title: title2
+    hoster: bitbucket
+    type: org
+    name: team2
     authName: username
     password: password
