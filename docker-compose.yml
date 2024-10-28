@@ -8,3 +8,6 @@ services:
     env_file: stack.env
     volumes:
       - ${LOCAL_BACKUP_DIRECTORY}:/opt/scm-backup/backup
+      - ./settings.yml:/opt/scm-backup/settings.yml
+      - ./entrypoint.sh:/usr/local/bin/entrypoint.sh
+    entrypoint: ["/usr/local/bin/entrypoint.sh"]
