@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  scm-backup:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      TITLE1: "title1"
+      TEAM1: "team1"
+      TITLE2: "title2"
+      TEAM2: "team2"
+      BB_USER: "your_bitbucket_username"
+      BB_PASSWORD: "your_bitbucket_password"
+    volumes:
+      - LOCAL_BACKUP_DIRECTORY:/opt/scm-backup/backup
+    entrypoint: ["/usr/local/bin/entrypoint.sh"]
