@@ -13,5 +13,5 @@ services:
       BB_USER: "your_bitbucket_username"
       BB_PASSWORD: "your_bitbucket_password"
     volumes:
-      - LOCAL_BACKUP_DIRECTORY:/opt/scm-backup/backup
+      - ${LOCAL_BACKUP_DIRECTORY}:/opt/scm-backup/backup
     entrypoint: ["/usr/local/bin/entrypoint.sh"]
