@@ -1,4 +1,4 @@
-FROM alpine:3.20
+FROM alpine:3.18
 
 ARG YQ_VERSION=4.44.3
 ARG SCM_VERSION=1.9.0
@@ -7,8 +7,8 @@ ARG SCM_FILE=scm-backup-1.9.0.71ac2df.zip
 #ARG DOTNET_FILE_SHA512=d67edf1ed7817c002e1f444baf3a48b71d6f3328ed3f63287d744445665db846f63d24f4f8dd97f99d85f9d5f28fd0d1f1b8efa0c88ed7545a3ee9cfc491f7d0
 
 ENV SCM_ROOT=/opt/scm-backup
-#ENV DOTNET_ROOT=/opt/dotnet
-#ENV PATH=${PATH}:${DOTNET_ROOT}
+ENV DOTNET_ROOT=/root/.dotnet
+ENV PATH=${PATH}:${DOTNET_ROOT}
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 
 WORKDIR ${SCM_ROOT}
@@ -16,7 +16,7 @@ WORKDIR ${SCM_ROOT}
 RUN apk add --no-cache \
        bash curl git \
     && apk add pixz \
-    libgcc libintl libssl1.1 \
+           libgcc libintl libssl1.1 \
     libstdc++ zlib curl git \
     --no-cache --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community \
     # Install dotnet runtime
@@ -43,6 +43,3 @@ COPY settings.yml .
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
 ENTRYPOINT ["entrypoint.sh"]
-
-
-
