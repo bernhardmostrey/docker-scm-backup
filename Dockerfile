@@ -38,8 +38,6 @@ RUN apk add --no-cache \
     && curl -fSL https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64 -o /usr/local/bin/yq \
     && chmod +x /usr/local/bin/yq
 
-COPY entrypoint.sh /usr/local/bin
-COPY settings.yml .
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
 ENTRYPOINT ["entrypoint.sh"]
