@@ -1,23 +1,22 @@
-# Dockerised SCM Backup
+# SCM Backup Docker
 
-[SCM Backup](https://scm-backup.org/) in a Docker container. Default configuration is preset to work with Github.
+This project sets up SCM backup in a Docker container using Docker Compose.
 
-## Environment Variables
+## Setup
 
-To run this project, you will need the following environment variables
+1. Clone the repository and navigate to the project folder.
+2. Create a `.env` file with your environment variables:
+   TITLE1=title1
+   TEAM1=team1
+   TITLE2=title2
+   TEAM2=team2
+   BB_USER=your_bitbucket_username
+   BB_PASSWORD=your_bitbucket_password
+   LOCAL_BACKUP_DIRECTORY=/path/to/local/backup
 
-`GH_ORG`
+3. Run Docker Compose:
+   docker-compose up --build
 
-`GH_USER`
+## Volumes
 
-`GH_PASS`
-
-## Usage/Examples
-
-```shell
-docker run -v ${LOCAL_BACKUP_DIRECTORY}:/opt/scm-backup/backup \
-           -e GH_USER=username \
-           -e GH_PASS=app_password \
-           -e GH_ORG=org \
-           juroapp/scm-backup
-```
+Backups are stored in `${LOCAL_BACKUP_DIRECTORY}:/opt/scm-backup/backup`.
